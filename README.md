@@ -1,7 +1,7 @@
 # ChatEnLinea
 <br> Integrantes:
-<br> Andres Tufiño
-<br>
+<br> - Andres Tufiño
+<br> - Darwin Cachimil
 # Instalación
 npm i
 # Correr en local
