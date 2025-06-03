@@ -24,9 +24,31 @@
         <div>
           <div class="message-header">
             <strong>{{ message.email }}</strong>
-            <small>{{ message.created_at | date:'shortTime' }}</small>
+            <small>
+              <!-- Si viene de Firebase puede no tener created_at, así que muestra timestamp si existe -->
+              {{ message.created_at ? (message.created_at | date:'shortTime') : (message.timestamp?.seconds ? (message.timestamp.seconds * 1000 | date:'shortTime') : '') }}
+            </small>
           </div>
-          <div class="message-content">{{ message.content }}</div>
+          <div class="message-content">
+            <ng-container [ngSwitch]="message.type">
+              <span *ngSwitchCase="'text'">{{ message.content }}</span>
+              <a *ngSwitchCase="'location'" [href]="message.content" target="_blank">
+                📍 Ver ubicación en Google Maps
+              </a>
+              <img *ngSwitchCase="'image'" [src]="message.content" alt="Foto" style="max-width:180px;max-height:180px;border-radius:12px;display:block;margin:6px 0;">
+              <!-- Pokémon -->
+              <div *ngSwitchCase="'pokemon'" class="pokemon-message">
+                <img [src]="message.content.image" alt="pokemon" style="width:80px;height:80px;object-fit:contain;display:block;margin:auto;">
+                <div style="text-align:center;font-weight:bold;text-transform:capitalize;">{{ message.content.name }}</div>
+                <div style="font-size:0.95em;text-align:center;">
+                  <div *ngFor="let stat of message.content.stats">
+                    {{ stat.name }}: {{ stat.value }}
+                  </div>
+                </div>
+              </div>
+              <span *ngSwitchDefault>{{ message.content }}</span>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>
@@ -42,5 +64,19 @@
     <ion-button (click)="sendMessage()" size="large" color="dark">
       Enviar Mensaje<ion-icon name="send" slot="icon-only"></ion-icon>
     </ion-button>
+    <ion-button (click)="sendLocation()" size="large" color="primary">
+      <ion-icon name="location-outline"></ion-icon>
+    </ion-button>
+  <!-- Botón para seleccionar foto de galería -->
+  <ion-button (click)="selectAndSendPhoto()" size="large" color="secondary">
+    <ion-icon name="image-outline"></ion-icon>
+  </ion-button>
+  <!-- Botón para tomar foto con la cámara -->
+  <ion-button (click)="takeAndSendPhoto()" size="large" color="tertiary">
+    <ion-icon name="camera-outline"></ion-icon>
+  </ion-button>
+  <ion-button (click)="sendRandomPokemon()" size="large" color="warning">
+    <ion-icon name="logo-octocat"></ion-icon> Pokémon Azar
+  </ion-button>
   </div>
 </ion-content>

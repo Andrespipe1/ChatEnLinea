@@ -59,6 +59,7 @@ ion-content {
   font-size: 1rem;
   min-width: 0;
   color: #222;
+  transition: background 0.2s;
 }
 
 .message img {
@@ -107,6 +108,25 @@ ion-content {
 .message-content {
   line-height: 1.4;
   font-size: 1rem;
+  word-break: break-word;
+}
+
+.message-content a {
+  color: #4e54c8;
+  text-decoration: none;
+  font-weight: 500;
+  background: #f3f4f8;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.message-content a:hover {
+  background: #e0e0ff;
+  color: #2d2d6a;
+  text-decoration: underline;
 }
 
 .input-container {
@@ -147,6 +167,40 @@ ion-title {
   font-weight: bold;
   font-size: 1.2rem;
 }
+/* Botón de galería */
+ion-button[color="secondary"] {
+  --background: linear-gradient(135deg, #43e97b, #38f9d7);
+  --color: #fff;
+  --box-shadow: 0 2px 8px rgba(67, 233, 123, 0.15);
+}
+ion-button[color="secondary"]:hover {
+  --background: linear-gradient(135deg, #38f9d7, #43e97b);
+}
+
+/* Botón de cámara */
+ion-button[color="tertiary"] {
+  --background: linear-gradient(135deg, #fa709a, #fee140);
+  --color: #fff;
+  --box-shadow: 0 2px 8px rgba(250, 112, 154, 0.15);
+}
+ion-button[color="tertiary"]:hover {
+  --background: linear-gradient(135deg, #fee140, #fa709a);
+}
+.message-content img {
+  display: block;
+  margin: 10px auto 4px auto;
+  max-width: 90vw;
+  max-height: 320px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(78, 84, 200, 0.13);
+  object-fit: cover;
+  background: #f3f4f8;
+  transition: box-shadow 0.2s;
+}
+
+.message-content img:hover {
+  box-shadow: 0 4px 16px rgba(78, 84, 200, 0.25);
+}
 
 /* MODO OSCURO */
 :host-context(.dark) ion-content {
@@ -186,9 +240,47 @@ ion-title {
   color: #e0e0e0;
 }
 
+:host-context(.dark) .message-content a {
+  background: #23243a;
+  color: #b3b7ff;
+}
+
+:host-context(.dark) .message-content a:hover {
+  background: #353570;
+  color: #fff;
+}
+
 :host-context(.dark) ion-toolbar {
   --background: linear-gradient(135deg, #23243a, #4e54c8);
   --color: #fff;
+}
+
+/* Modo oscuro para los botones de foto */
+:host-context(.dark) ion-button[color="secondary"] {
+  --background: linear-gradient(135deg, #1de9b6, #1dc8e9);
+  --color: #fff;
+}
+:host-context(.dark) ion-button[color="tertiary"] {
+  --background: linear-gradient(135deg, #ff6a88, #ff99ac);
+  --color: #fff;
+}
+
+/* Modo oscuro para la imagen */
+:host-context(.dark) .message-content img {
+  background: #23243a;
+  box-shadow: 0 2px 8px rgba(67, 233, 123, 0.10);
+}
+.pokemon-message {
+  background: #6b6b6b;
+  border-radius: 14px;
+  padding: 10px 8px 8px 8px;
+  margin: 6px 0;
+  box-shadow: 0 2px 8px rgba(250, 200, 60, 0.13);
+  text-align: center;
+}
+:host-context(.dark) .pokemon-message {
+  background: #2d2d1a;
+  color: #ffe066;
 }
 
 @media (max-width: 600px) {
