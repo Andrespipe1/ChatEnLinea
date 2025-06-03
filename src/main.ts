@@ -6,7 +6,16 @@ import { appRouting } from './app/app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { firebaseConfig } from './environments/environment'; // o donde tengas tu config
 import { initializeApp } from 'firebase/app'; 
+import { addIcons } from 'ionicons';
+import { cameraOutline, imageOutline, locationOutline, send, logoOctocat } from 'ionicons/icons';
 
+addIcons({
+  'camera-outline': cameraOutline,
+  'image-outline': imageOutline,
+  'location-outline': locationOutline,
+  'send': send,
+  'logo-octocat': logoOctocat
+});
 initializeApp(firebaseConfig);
 bootstrapApplication(AppComponent, {
   providers: [

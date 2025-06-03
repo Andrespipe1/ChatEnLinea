@@ -5,10 +5,13 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-input [(ngModel)]="email" placeholder="Email"></ion-input>
-  <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña"></ion-input>
-  <ion-button expand="full" (click)="login()">Iniciar sesión</ion-button>
-  <ion-button expand="full" fill="outline" (click)="register()">Registrarse</ion-button>
-
-  <p *ngIf="error" style="color: red">{{ error }}</p>
+  <div class="login-container">
+    <div class="login-card">
+      <ion-input [(ngModel)]="email" placeholder="Email" class="login-input"></ion-input>
+      <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña" class="login-input"></ion-input>
+      <ion-button expand="block" (click)="login()" color="primary">Iniciar sesión</ion-button>
+      <ion-button expand="block" fill="outline" (click)="register()" color="secondary">Registrarse</ion-button>
+      <p *ngIf="error" class="login-error">{{ error }}</p>
+    </div>
+  </div>
 </ion-content>

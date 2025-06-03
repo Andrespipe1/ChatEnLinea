@@ -167,24 +167,80 @@ ion-title {
   font-weight: bold;
   font-size: 1.2rem;
 }
-/* Botón de galería */
-ion-button[color="secondary"] {
-  --background: linear-gradient(135deg, #43e97b, #38f9d7);
-  --color: #fff;
-  --box-shadow: 0 2px 8px rgba(67, 233, 123, 0.15);
-}
-ion-button[color="secondary"]:hover {
-  --background: linear-gradient(135deg, #38f9d7, #43e97b);
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 0 2px;
 }
 
-/* Botón de cámara */
-ion-button[color="tertiary"] {
-  --background: linear-gradient(135deg, #fa709a, #fee140);
-  --color: #fff;
-  --box-shadow: 0 2px 8px rgba(250, 112, 154, 0.15);
+ion-button {
+  --border-radius: 50%;
+  --box-shadow: 0 2px 8px rgba(78, 84, 200, 0.13);
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-ion-button[color="tertiary"]:hover {
-  --background: linear-gradient(135deg, #fee140, #fa709a);
+
+ion-button ion-icon {
+  font-size: 1.6em;
+  margin: 0;
+}
+
+ion-button[color="warning"] {
+  --background: linear-gradient(135deg, #ffe066, #ffb347);
+  --color: #222;
+}
+
+ion-button[color="warning"]:hover {
+  --background: linear-gradient(135deg, #ffb347, #ffe066);
+}
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.actions-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+ion-input.custom-input {
+  flex: 1;
+  --background: #fff;
+  --border-radius: 24px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  font-size: 1rem;
+  min-width: 0;
+  color: #222;
+}
+
+ion-button {
+  --border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-button ion-icon {
+  font-size: 1.6em;
+  margin: 0;
 }
 .message-content img {
   display: block;

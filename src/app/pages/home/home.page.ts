@@ -131,26 +131,27 @@ async loadAvatar() {
   }
 
   async updateAvatar() {
-    if (!this.selectedFile || !this.userId) return;
-    const fileExt = this.selectedFile.name.split('.').pop();
-    const filePath = `avatars/${this.userId}.${fileExt}`;
-    const { error: uploadError } = await supabase.storage
+  if (!this.selectedFile || !this.userId) return;
+  const fileExt = this.selectedFile.name.split('.').pop();
+  const filePath = `avatars/${this.userId}.${fileExt}`;
+  const { error: uploadError } = await supabase.storage
+    .from('avatars')
+    .upload(filePath, this.selectedFile, { upsert: true });
+
+  if (!uploadError) {
+    const { data: publicUrlData } = supabase.storage
       .from('avatars')
-      .upload(filePath, this.selectedFile, { upsert: true });
+      .getPublicUrl(filePath);
+    // Fuerza recarga agregando un query param único
+    const avatarUrl = publicUrlData.publicUrl + '?t=' + Date.now();
 
-    if (!uploadError) {
-      const { data: publicUrlData } = supabase.storage
-        .from('avatars')
-        .getPublicUrl(filePath);
-      const avatarUrl = publicUrlData.publicUrl;
+    // Actualiza la URL en la tabla de perfiles
+    await supabase.from('profiles').update({ avatar_url: avatarUrl }).eq('id', this.userId);
 
-      // Actualiza la URL en la tabla de perfiles
-      await supabase.from('profiles').update({ avatar_url: avatarUrl }).eq('id', this.userId);
-
-      this.avatarUrl = avatarUrl;
-      this.selectedFile = null;
-    }
+    this.avatarUrl = avatarUrl;
+    this.selectedFile = null;
   }
+}
 
   async loadPreviousMessages() {
     const { data, error } = await supabase

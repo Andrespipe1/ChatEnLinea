@@ -35,8 +35,7 @@
               <a *ngSwitchCase="'location'" [href]="message.content" target="_blank">
                 📍 Ver ubicación en Google Maps
               </a>
-              <img *ngSwitchCase="'image'" [src]="message.content" alt="Foto" style="max-width:180px;max-height:180px;border-radius:12px;display:block;margin:6px 0;">
-              <!-- Pokémon -->
+              <img *ngSwitchCase="'image'" [src]="message.content" alt="Foto" style="max-width:90vw;max-height:320px;width:auto;height:auto;border-radius:16px;display:block;margin:10px auto 4px auto;">              <!-- Pokémon -->
               <div *ngSwitchCase="'pokemon'" class="pokemon-message">
                 <img [src]="message.content.image" alt="pokemon" style="width:80px;height:80px;object-fit:contain;display:block;margin:auto;">
                 <div style="text-align:center;font-weight:bold;text-transform:capitalize;">{{ message.content.name }}</div>
@@ -54,7 +53,7 @@
     </div>
   </div>
 
-  <div class="input-container">
+  <div class="input-row">
     <ion-input 
       [(ngModel)]="newMessage" 
       placeholder="Escribe un mensaje..." 
@@ -62,21 +61,21 @@
       class="custom-input"
     ></ion-input>
     <ion-button (click)="sendMessage()" size="large" color="dark">
-      Enviar Mensaje<ion-icon name="send" slot="icon-only"></ion-icon>
+      <ion-icon name="send" slot="icon-only"></ion-icon>
     </ion-button>
+  </div>
+  <div class="actions-row">
     <ion-button (click)="sendLocation()" size="large" color="primary">
       <ion-icon name="location-outline"></ion-icon>
     </ion-button>
-  <!-- Botón para seleccionar foto de galería -->
-  <ion-button (click)="selectAndSendPhoto()" size="large" color="secondary">
-    <ion-icon name="image-outline"></ion-icon>
-  </ion-button>
-  <!-- Botón para tomar foto con la cámara -->
-  <ion-button (click)="takeAndSendPhoto()" size="large" color="tertiary">
-    <ion-icon name="camera-outline"></ion-icon>
-  </ion-button>
-  <ion-button (click)="sendRandomPokemon()" size="large" color="warning">
-    <ion-icon name="logo-octocat"></ion-icon> Pokémon Azar
-  </ion-button>
+    <ion-button (click)="selectAndSendPhoto()" size="large" color="secondary">
+      <ion-icon name="image-outline"></ion-icon>
+    </ion-button>
+    <ion-button (click)="takeAndSendPhoto()" size="large" color="tertiary">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-button>
+    <ion-button (click)="sendRandomPokemon()" size="large" color="warning">pokemon
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
   </div>
 </ion-content>

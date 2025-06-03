@@ -1,0 +1,139 @@
+ion-content {
+  --background: #f3f4f8;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(78, 84, 200, 0.13);
+  padding: 32px 28px 24px 28px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.login-logo {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(78, 84, 200, 0.13);
+  object-fit: cover;
+}
+
+.login-input {
+  --background: #f3f4f8;
+  --border-radius: 16px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+ion-button {
+  --border-radius: 16px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.login-error {
+  color: #fa709a;
+  font-size: 0.98rem;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Modo oscuro */
+:host-context(.dark) ion-content {
+  --background: #181a20;
+}
+:host-context(.dark) .login-card {
+  background: #23243a;
+  color: #e0e0e0;
+}
+:host-context(.dark) .login-input {
+  --background: #23243a;
+  color: #e0e0e0;
+}
+:host-context(.dark) .login-error {
+  color: #ffb3c6;
+}ion-content {
+  --background: #f3f4f8;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(78, 84, 200, 0.13);
+  padding: 32px 28px 24px 28px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.login-logo {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(78, 84, 200, 0.13);
+  object-fit: cover;
+}
+
+.login-input {
+  --background: #f3f4f8;
+  --border-radius: 16px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+ion-button {
+  --border-radius: 16px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.login-error {
+  color: #fa709a;
+  font-size: 0.98rem;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Modo oscuro */
+:host-context(.dark) ion-content {
+  --background: #181a20;
+}
+:host-context(.dark) .login-card {
+  background: #23243a;
+  color: #e0e0e0;
+}
+:host-context(.dark) .login-input {
+  --background: #23243a;
+  color: #e0e0e0;
+}
+:host-context(.dark) .login-error {
+  color: #ffb3c6;
+}
