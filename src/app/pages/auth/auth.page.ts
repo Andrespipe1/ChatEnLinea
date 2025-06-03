@@ -29,11 +29,23 @@ export class AuthPage {
   }
 
   async register() {
-    const { error } = await supabase.auth.signUp({
-      email: this.email,
-      password: this.password,
+  const { data, error } = await supabase.auth.signUp({
+    email: this.email,
+    password: this.password,
+  });
+  if (error) {
+    this.error = error.message;
+    return;
+  }
+
+  // Insertar perfil vacío para el nuevo usuario
+  if (data.user) {
+    await supabase.from('profiles').insert({
+      id: data.user.id,
+      avatar_url: '',
     });
-    if (error) this.error = error.message;
-    else alert('Registro exitoso. Verifica tu email.');
+  }
+
+  alert('Registro exitoso. Verifica tu email.');
   }
 }

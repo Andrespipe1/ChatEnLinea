@@ -11,16 +11,24 @@
 
 <ion-content class="ion-padding">
   <div class="welcome-message">
+    <img *ngIf="avatarUrl" [src]="avatarUrl" alt="Avatar" width="64" height="64" style="border-radius:50%;object-fit:cover;margin-bottom:8px;">
+    <input type="file" accept="image/*" (change)="onFileSelected($event)" style="display:block;margin:8px auto;">
+    <ion-button (click)="updateAvatar()" [disabled]="!selectedFile" size="small">Actualizar foto</ion-button>
     <ion-text color="medium">Bienvenido, <strong>{{ email }}</strong></ion-text>
   </div>
   
   <div class="chat-container">
     <div *ngFor="let message of messages" class="message" [class.my-message]="message.email === email">
-      <div class="message-header">
-        <strong>{{ message.email }}</strong>
-        <small>{{ message.created_at | date:'shortTime' }}</small>
+      <div style="display: flex; align-items: center;">
+        <img *ngIf="message.avatar_url" [src]="message.avatar_url" alt="avatar" width="32" height="32" style="border-radius:50%;object-fit:cover;margin-right:8px;">
+        <div>
+          <div class="message-header">
+            <strong>{{ message.email }}</strong>
+            <small>{{ message.created_at | date:'shortTime' }}</small>
+          </div>
+          <div class="message-content">{{ message.content }}</div>
+        </div>
       </div>
-      <div class="message-content">{{ message.content }}</div>
     </div>
   </div>
 

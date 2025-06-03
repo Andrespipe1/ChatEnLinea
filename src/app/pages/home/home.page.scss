@@ -1,90 +1,143 @@
+ion-content {
+  --background: #f3f4f8;
+}
+
+.welcome-message {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  img {
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(78, 84, 200, 0.15);
+    margin-bottom: 0;
+  }
+
+  input[type="file"] {
+    margin: 0 auto;
+    font-size: 0.95rem;
+  }
+
+  ion-button {
+    margin: 0 auto;
+    font-size: 0.9rem;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --border-radius: 20px;
+  }
+}
+
 .chat-container {
-  height: 70vh;
+  height: 60vh;
   overflow-y: auto;
-  margin-bottom: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 16px;
-  background: #f9f9f9;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  
-  /* Scrollbar personalizada (opcional) */
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 4px;
-  }
+  margin-bottom: 16px;
+  padding: 0 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .message {
-  background: white;
-  padding: 12px 16px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  max-width: 80%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin-bottom: 2px;
+  max-width: 90%;
+  word-break: break-word;
+  background: #fff;
+  border-radius: 18px 18px 18px 6px;
+  padding: 8px 14px 8px 10px;
+  box-shadow: 0 2px 8px rgba(78, 84, 200, 0.07);
   position: relative;
-  word-wrap: break-word;
-  
-  /* Flecha para mensajes recibidos */
-  &::before {
-    content: "";
-    position: absolute;
-    left: -8px;
-    top: 12px;
-    width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 8px solid white;
-  }
+  font-size: 1rem;
+  min-width: 0;
+  color: #222;
+}
 
-  small {
-    display: block;
-    margin-top: 4px;
-    font-size: 0.75rem;
-    color: #888;
-    text-align: right;
-  }
+.message img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+  background: #fff;
+  margin-right: 4px;
 }
 
 .my-message {
-  background: linear-gradient(135deg, #4e54c8, #8f94fb);
-  color: white;
   margin-left: auto;
-  box-shadow: 0 2px 8px rgba(78, 84, 200, 0.2);
-  
-  /* Flecha para mensajes propios */
-  &::before {
-    left: auto;
-    right: -8px;
-    border-right: none;
-    border-left: 8px solid #4e54c8;
-  }
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: #fff !important;
+  border-radius: 18px 18px 6px 18px;
+  box-shadow: 0 2px 8px rgba(78, 84, 200, 0.13);
 
-  small {
-    color: rgba(255, 255, 255, 0.7);
+  .message-header strong,
+  .message-header small {
+    color: #fff !important;
   }
 }
 
-/* Input y botón mejorados */
-ion-item {
-  --background: white;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+.message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.message-header strong {
+  font-size: 0.95rem;
+  color: #4e54c8;
+}
+
+.message-header small {
+  font-size: 0.8rem;
+  color: #888;
+  margin-left: 8px;
+}
+
+.message-content {
+  line-height: 1.4;
+  font-size: 1rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 0 2px;
+}
+
+ion-input.custom-input {
+  --background: #fff;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --border-radius: 24px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --placeholder-color: #a1a1a1;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 0;
+  color: #222;
 }
 
 ion-button {
   --background: linear-gradient(135deg, #4e54c8, #8f94fb);
-  --box-shadow: 0 4px 12px rgba(78, 84, 200, 0.3);
-  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(78, 84, 200, 0.2);
+  --border-radius: 20px;
   font-weight: bold;
+  font-size: 1rem;
 }
 
-/* Título y cabecera */
 ion-toolbar {
   --background: linear-gradient(135deg, #4e54c8, #8f94fb);
   --color: white;
@@ -92,47 +145,62 @@ ion-toolbar {
 
 ion-title {
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
-/* --- Input personalizado --- */
-.custom-input {
-  --background: white;
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --border-radius: 24px;
-  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --placeholder-color: #a1a1a1;
+/* MODO OSCURO */
+:host-context(.dark) ion-content {
+  --background: #181a20;
 }
 
-/* --- Contenedor del input + botón --- */
-.input-container {
-  display: flex;
-  align-items: center;
-  margin-top: 16px;
+:host-context(.dark) .welcome-message {
+  color: #e0e0e0;
 }
 
-/* --- Botón de cerrar sesión (en toolbar) --- */
-ion-toolbar ion-button {
-  --color: white;
-  --background-hover: rgba(255, 255, 255, 0.1);
+:host-context(.dark) .message {
+  background: #23243a;
+  color: #e0e0e0;
 }
 
-/* --- Mensaje de bienvenida --- */
-.welcome-message {
-  text-align: center;
-  margin-bottom: 16px;
-  font-size: 0.9rem;
+:host-context(.dark) .my-message {
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: #fff !important;
 }
 
-/* --- Mejora para los mensajes (opcional) --- */
-.message-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
+:host-context(.dark) .message-header strong {
+  color: #b3b7ff;
 }
 
-.message-content {
-  line-height: 1.4;
+:host-context(.dark) .message-header small {
+  color: #aaa;
 }
 
+:host-context(.dark) .message img {
+  border: 2px solid #23243a;
+  background: #23243a;
+}
+
+:host-context(.dark) ion-input.custom-input {
+  --background: #23243a;
+  --placeholder-color: #b3b7ff;
+  color: #e0e0e0;
+}
+
+:host-context(.dark) ion-toolbar {
+  --background: linear-gradient(135deg, #23243a, #4e54c8);
+  --color: #fff;
+}
+
+@media (max-width: 600px) {
+  .chat-container {
+    height: 55vh;
+    padding: 0 1px;
+  }
+  .message, .my-message {
+    font-size: 0.97rem;
+    padding: 8px 10px 8px 8px;
+  }
+  .welcome-message {
+    font-size: 0.95rem;
+  }
+}
