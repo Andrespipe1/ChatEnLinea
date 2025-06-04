@@ -1,20 +1,30 @@
 ![Sin título](https://github.com/user-attachments/assets/0ed85703-5af0-4236-9364-ca95dc80b1ba)
 
-ChatEnLinea
-ChatEnLinea es una aplicación de chat en tiempo real desarrollada con Ionic + Angular, que permite enviar mensajes, fotos (cámara y galería), ubicación, y mensajes especiales de Pokémon usando la PokéAPI. Incluye autenticación, avatar de usuario y despliegue en Android.
+# ChatEnLinea
 
-Características
-Autenticación de usuarios (registro y login con Firebase)
-Chat en tiempo real usando Firebase y Supabase
-Envío de mensajes de texto
-Envío de fotos (desde galería o cámara, usando Capacitor y Supabase Storage)
-Envío de ubicación (Google Maps)
-Envío de Pokémon aleatorio (consulta a PokéAPI y muestra nombre, imagen y stats)
-Avatar de usuario (subida y actualización)
-Diseño responsive y moderno (modo claro/oscuro)
-Despliegue en Android (APK)
-Instalación y ejecución local
-Clona el repositorio
+**ChatEnLinea** es una aplicación de chat en tiempo real desarrollada con **Ionic + Angular**, que permite a los usuarios enviar mensajes, fotos (cámara y galería), ubicación, y mensajes especiales con Pokémon usando la **PokéAPI**. La app cuenta con autenticación, avatar de usuario, diseño moderno y soporte para modo claro/oscuro, además de despliegue en Android.
+
+## 🚀 Características
+
+- ✅ Autenticación de usuarios (registro y login con Firebase)
+- 💬 Chat en tiempo real con Firebase y Supabase
+- 🖼️ Envío de fotos desde galería o cámara (Capacitor + Supabase Storage)
+- 📍 Envío de ubicación (Google Maps)
+- 🎲 Envío de Pokémon aleatorio (consulta a PokéAPI con nombre, imagen y stats)
+- 🧑 Avatar de usuario (subida y actualización con Supabase Storage)
+- 💡 Interfaz moderna y responsive (modo claro y oscuro)
+- 📱 Despliegue en Android (APK)
+
+---
+
+## 🛠️ Instalación y ejecución local
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/tuusuario/chat-en-linea.git
+cd chat-en-linea
+
 
 Instala dependencias
 
