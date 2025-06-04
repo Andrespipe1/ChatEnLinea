@@ -1,3 +1,5 @@
+![Sin título](https://github.com/user-attachments/assets/0ed85703-5af0-4236-9364-ca95dc80b1ba)
+
 ChatEnLinea
 ChatEnLinea es una aplicación de chat en tiempo real desarrollada con Ionic + Angular, que permite enviar mensajes, fotos (cámara y galería), ubicación, y mensajes especiales de Pokémon usando la PokéAPI. Incluye autenticación, avatar de usuario y despliegue en Android.
 
